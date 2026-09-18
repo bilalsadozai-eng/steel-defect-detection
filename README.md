@@ -1,47 +1,62 @@
-# 🏭 Industrial Steel Defect Detection System
+# 🏭 Automated Steel Defect Detection System
+### *Industrial-Grade Computer Vision & Deep Learning Pipeline*
 
-An end-to-end Deep Learning application designed to classify manufacturing surface defects on steel sheets using the **NEU-DET** dataset. Built with **PyTorch** for model training and **Streamlit** for real-time visual inspection via an interactive web application.
+[![Live Demo](https://img.shields.io/badge/Streamlit-Live--App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://bilal-steel-defect-detection.streamlit.app/)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
----
+An end-to-end deep learning framework engineered for automated surface inspection in steel manufacturing processes. Built with PyTorch and deployed on Streamlit Cloud.
 
-## 📌 Project Overview
-Steel manufacturing plants require high-precision visual quality control. Manual inspection is slow and prone to error. This project automates defect recognition across 6 common surface defect categories with confidence scoring and probability distributions.
-
-### 🔍 Supported Defect Classes
-* **Crazing** (Baarik dararein)
-* **Inclusion** (External impurities)
-* **Patches** (Surface blemishes)
-* **Pitted Surface** (Small surface cavities)
-* **Rolled-in Scale** (Oxide scale pressed into metal)
-* **Scratches** (Abrasive lines)
+</div>
 
 ---
 
-## 🛠️ Tech Stack & Tools
-* **Language:** Python 3.11
-* **Deep Learning Framework:** PyTorch & Torchvision
-* **Computer Vision:** OpenCV & Pillow
-* **Data Processing & Evaluation:** Scikit-Learn, Seaborn, Matplotlib
-* **Web Dashboard:** Streamlit
-* **Version Control:** Git & GitHub
+## 📌 Executive Summary
+
+Manual quality assurance in hot/cold rolling steel mills is prone to human error, slow throughput, and safety hazards. This system automates the inspection process by leveraging custom Convolutional Neural Networks (CNNs) to classify surface defects with high confidence in real-time.
 
 ---
 
-## 🚀 Key Features
-1. **Custom CNN Architecture:** Trained for 10 epochs on normalized $200 \times 200$ images.
-2. **Model Evaluation:** Includes scripts for generating Confusion Matrices and Classification Reports (Precision, Recall, F1-Score).
-3. **CLI & Visual Inspection:** Interactive command-line testing with dynamic Matplotlib image overlays.
-4. **Interactive Web App:** Drag-and-drop web dashboard with real-time class probability breakdown.
+## 🎯 Defect Taxonomy
+
+The model is trained to classify **6 primary industrial steel defect types**:
+
+| Defect Class | Physical Characteristics | Severity Impact |
+| :--- | :--- | :--- |
+| **Crazing** | Micro-fissures caused by rapid thermal cooling | Medium |
+| **Inclusion** | Foreign non-metallic matter embedded on surface | High |
+| **Patches** | Localized oxidation or uneven coating areas | Low - Medium |
+| **Pitted Surface** | Small cavities or indentations due to mechanical wear | High |
+| **Rolled-in Scale** | Oxide scale pressed into metal during rolling | Critical |
+| **Scratches** | Linear surface abrasion from mechanical handling | Low |
 
 ---
 
-## 📁 Repository Structure
-```text
-├── app.py                      # Interactive Streamlit Web Application
-├── defect_detection_phase1.py  # PyTorch Model Architecture Definition
-├── predict.py                  # CLI Random Sample Prediction Script
-├── visual_predict.py           # GUI Matplotlib Popup Visualizer
-├── evaluate.py                 # Evaluation Metrics & Confusion Matrix Generator
-├── defect_detector_model.pth   # Saved PyTorch Model Weights
-├── requirements.txt            # Project Dependencies for Deployment
-└── README.md                   # Project Documentation
+## 🏗️ System Architecture
+
+┌─────────────────┐      ┌─────────────────────────┐      ┌────────────────────────┐
+│  Image Input    │ ───> │ Torchvision Transforms  │ ───> │ Custom PyTorch CNN     │
+│ (JPG, PNG, JPEG)│      │ Resize, Tensor, Norm    │      │ (DefectClassifier)     │
+└─────────────────┘      └─────────────────────────┘      └───────────┬────────────┘
+│
+┌─────────────────┐      ┌─────────────────────────┐                  │
+│ Streamlit UI    │ <─── │ Softmax Probabilities   │ <──────────────────┘
+│ Metrics & Charts│      │ Confidence & Metrics    │
+└─────────────────┘      └─────────────────────────┘
+
+
+---
+
+## ⚡ Quickstart & Local Deployment
+
+### Prerequisites
+- Python 3.10 or higher
+- Git
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/bilalsadozai-eng/steel-defect-detection.git](https://github.com/bilalsadozai-eng/steel-defect-detection.git)
+   cd steel-defect-detection
